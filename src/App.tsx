@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
@@ -11,9 +11,8 @@ function App() {
         <h1>React frontend deployed via Amplify</h1>
         <p>Hey team :D</p>
       </header>
-      <AmplifySignOut />
     </div>
   );
 }
 
-export default withAuthenticator(App);
+export default App;
