@@ -1,0 +1,38 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+# TODO: Add Editorial Support to schema
+type CategoryPage @model {
+  id: ID!
+  ProductType: String! @primaryKey
+  Categories: [String!]!
+  Listings: [ProductListing] @hasMany
+  PageTitle: String!
+  PageSubtitle: String!
+}
+
+type ProductListing @model {
+  productId: ID! @primaryKey
+  ProductName: String!
+  ProductType: String!
+  BrandName: String!
+  Rating: Float!
+  Description: String! @default(value: "")
+  ImageUrl: String!
+  Categories: [String!]!
+  categoryPage: CategoryPage @belongsTo
+  Rank: Int!
+  Tags: [Tag!]! @hasMany
+  ReferralUrl: [ReferralUrl!]! @hasMany
+}
+
+type Tag @model {
+  Label: String!
+  Color: String!
+}
+
+type ReferralUrl @model {
+  Url: String!
+  Listing: ProductListing! @belongsTo
+}

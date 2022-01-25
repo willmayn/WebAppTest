@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { API } from 'aws-amplify';
+import { getCategoryPage } from './graphql/queries';
 
 function App() {
   return (
