@@ -7,7 +7,7 @@ type CategoryPage @model {
   id: ID!
   ProductType: String! @primaryKey
   Categories: [String!]!
-  Listings: [ProductListing] @hasMany
+  Listings: [ProductListing!]! @hasMany
   PageTitle: String!
   PageSubtitle: String!
 }
