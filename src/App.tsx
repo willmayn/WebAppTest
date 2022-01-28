@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { API } from 'aws-amplify';
 import { getCategoryPage } from './graphql/queries';
-import ProductView from './components/ProductView';
 import CategoryView from './components/CategoryView';
 import { ProductListing, CategoryPage, ModelProductListingConnection } from './API';
 
