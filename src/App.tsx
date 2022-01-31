@@ -3,50 +3,42 @@ import './App.css';
 import { API } from 'aws-amplify';
 import { getCategoryPage } from './graphql/queries';
 import CategoryView from './components/CategoryView';
-import { ProductListing, CategoryPage, ModelProductListingConnection } from './API';
+import { CategoryPage, GetCategoryPageQuery, GetCategoryPageQueryVariables } from './API';
 
 function App() {
 
-  let sampleListing: ProductListing = {
-    __typename: "ProductListing",
-    productId: "00000",
-    ProductName: "Super Amazing Awesome Hand Held Telescope",
-    ProductType: "Sample",
-    BrandName: "RealCompany",
-    Rating: 10.0,
-    Description: "Do you really need a description of a sample product?",
-    ImageUrl: "https://roxant.com/wp-content/uploads/2020/07/514RStoCUwL._AC_SL1029_-1.jpg",
-    Categories: [],
-    categoryPage: null,
-    Rank: 1,
-    Tags: null,
-    ReferralUrl: null,
-    createdAt: "nunya",
-    updatedAt: "bizness",
-    categoryPageListingsId: "00000"
-  };
+  const [category, setCategory] = useState<CategoryPage | undefined>(undefined);
 
-  let sampleListingConnection: ModelProductListingConnection = {
-    __typename: "ModelProductListingConnection",
-    items: [sampleListing],
-    nextToken: null
-  };
+  async function fetchCategory() {
+    try {
+      const args : GetCategoryPageQueryVariables = {
+        ProductType: "Sample"
+      };
+      const response = await API.graphql({ 
+        query: getCategoryPage,
+        variables: args
+      }) as { data: GetCategoryPageQuery };
+      console.log(response);
+      if (response.data.getCategoryPage)
+      {
+        setCategory(response.data.getCategoryPage);
+      }
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
 
-  let sampleCategory: CategoryPage = {
-    __typename: "CategoryPage",
-    id: "00000",
-    ProductType: "Sample",
-    Categories: [],
-    Listings: sampleListingConnection,
-    PageTitle: "Sample Category",
-    PageSubtitle: "Of Jan 2022",
-    createdAt: "notin",
-    updatedAt: "use"
-  };
+  useEffect(() => {
+    fetchCategory();
+  }, []);
 
   return (
     <div className="App">
-      <CategoryView {...sampleCategory} />
+      {category
+        ? <CategoryView {...category} />
+        : <h1>Failed to load category. Please see console.</h1>
+      }
     </div>
   );
 }

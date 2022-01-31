@@ -8,7 +8,6 @@ export const createCategoryPage = /* GraphQL */ `
     $condition: ModelCategoryPageConditionInput
   ) {
     createCategoryPage(input: $input, condition: $condition) {
-      id
       ProductType
       Categories
       Listings {
@@ -21,43 +20,9 @@ export const createCategoryPage = /* GraphQL */ `
           Description
           ImageUrl
           Categories
-          categoryPage {
-            id
-            ProductType
-            Categories
-            Listings {
-              nextToken
-            }
-            PageTitle
-            PageSubtitle
-            createdAt
-            updatedAt
-          }
           Rank
-          Tags {
-            items {
-              Label
-              Color
-              id
-              createdAt
-              updatedAt
-              productListingTagsId
-            }
-            nextToken
-          }
-          ReferralUrl {
-            items {
-              Url
-              id
-              createdAt
-              updatedAt
-              productListingReferralUrlId
-            }
-            nextToken
-          }
           createdAt
           updatedAt
-          categoryPageListingsId
         }
         nextToken
       }
@@ -74,7 +39,6 @@ export const updateCategoryPage = /* GraphQL */ `
     $condition: ModelCategoryPageConditionInput
   ) {
     updateCategoryPage(input: $input, condition: $condition) {
-      id
       ProductType
       Categories
       Listings {
@@ -87,43 +51,9 @@ export const updateCategoryPage = /* GraphQL */ `
           Description
           ImageUrl
           Categories
-          categoryPage {
-            id
-            ProductType
-            Categories
-            Listings {
-              nextToken
-            }
-            PageTitle
-            PageSubtitle
-            createdAt
-            updatedAt
-          }
           Rank
-          Tags {
-            items {
-              Label
-              Color
-              id
-              createdAt
-              updatedAt
-              productListingTagsId
-            }
-            nextToken
-          }
-          ReferralUrl {
-            items {
-              Url
-              id
-              createdAt
-              updatedAt
-              productListingReferralUrlId
-            }
-            nextToken
-          }
           createdAt
           updatedAt
-          categoryPageListingsId
         }
         nextToken
       }
@@ -140,7 +70,6 @@ export const deleteCategoryPage = /* GraphQL */ `
     $condition: ModelCategoryPageConditionInput
   ) {
     deleteCategoryPage(input: $input, condition: $condition) {
-      id
       ProductType
       Categories
       Listings {
@@ -153,43 +82,9 @@ export const deleteCategoryPage = /* GraphQL */ `
           Description
           ImageUrl
           Categories
-          categoryPage {
-            id
-            ProductType
-            Categories
-            Listings {
-              nextToken
-            }
-            PageTitle
-            PageSubtitle
-            createdAt
-            updatedAt
-          }
           Rank
-          Tags {
-            items {
-              Label
-              Color
-              id
-              createdAt
-              updatedAt
-              productListingTagsId
-            }
-            nextToken
-          }
-          ReferralUrl {
-            items {
-              Url
-              id
-              createdAt
-              updatedAt
-              productListingReferralUrlId
-            }
-            nextToken
-          }
           createdAt
           updatedAt
-          categoryPageListingsId
         }
         nextToken
       }
@@ -214,101 +109,9 @@ export const createProductListing = /* GraphQL */ `
       Description
       ImageUrl
       Categories
-      categoryPage {
-        id
-        ProductType
-        Categories
-        Listings {
-          items {
-            productId
-            ProductName
-            ProductType
-            BrandName
-            Rating
-            Description
-            ImageUrl
-            Categories
-            categoryPage {
-              id
-              ProductType
-              Categories
-              PageTitle
-              PageSubtitle
-              createdAt
-              updatedAt
-            }
-            Rank
-            Tags {
-              nextToken
-            }
-            ReferralUrl {
-              nextToken
-            }
-            createdAt
-            updatedAt
-            categoryPageListingsId
-          }
-          nextToken
-        }
-        PageTitle
-        PageSubtitle
-        createdAt
-        updatedAt
-      }
       Rank
-      Tags {
-        items {
-          Label
-          Color
-          id
-          createdAt
-          updatedAt
-          productListingTagsId
-        }
-        nextToken
-      }
-      ReferralUrl {
-        items {
-          Url
-          Listing {
-            productId
-            ProductName
-            ProductType
-            BrandName
-            Rating
-            Description
-            ImageUrl
-            Categories
-            categoryPage {
-              id
-              ProductType
-              Categories
-              PageTitle
-              PageSubtitle
-              createdAt
-              updatedAt
-            }
-            Rank
-            Tags {
-              nextToken
-            }
-            ReferralUrl {
-              nextToken
-            }
-            createdAt
-            updatedAt
-            categoryPageListingsId
-          }
-          id
-          createdAt
-          updatedAt
-          productListingReferralUrlId
-        }
-        nextToken
-      }
       createdAt
       updatedAt
-      categoryPageListingsId
     }
   }
 `;
@@ -326,101 +129,9 @@ export const updateProductListing = /* GraphQL */ `
       Description
       ImageUrl
       Categories
-      categoryPage {
-        id
-        ProductType
-        Categories
-        Listings {
-          items {
-            productId
-            ProductName
-            ProductType
-            BrandName
-            Rating
-            Description
-            ImageUrl
-            Categories
-            categoryPage {
-              id
-              ProductType
-              Categories
-              PageTitle
-              PageSubtitle
-              createdAt
-              updatedAt
-            }
-            Rank
-            Tags {
-              nextToken
-            }
-            ReferralUrl {
-              nextToken
-            }
-            createdAt
-            updatedAt
-            categoryPageListingsId
-          }
-          nextToken
-        }
-        PageTitle
-        PageSubtitle
-        createdAt
-        updatedAt
-      }
       Rank
-      Tags {
-        items {
-          Label
-          Color
-          id
-          createdAt
-          updatedAt
-          productListingTagsId
-        }
-        nextToken
-      }
-      ReferralUrl {
-        items {
-          Url
-          Listing {
-            productId
-            ProductName
-            ProductType
-            BrandName
-            Rating
-            Description
-            ImageUrl
-            Categories
-            categoryPage {
-              id
-              ProductType
-              Categories
-              PageTitle
-              PageSubtitle
-              createdAt
-              updatedAt
-            }
-            Rank
-            Tags {
-              nextToken
-            }
-            ReferralUrl {
-              nextToken
-            }
-            createdAt
-            updatedAt
-            categoryPageListingsId
-          }
-          id
-          createdAt
-          updatedAt
-          productListingReferralUrlId
-        }
-        nextToken
-      }
       createdAt
       updatedAt
-      categoryPageListingsId
     }
   }
 `;
@@ -438,413 +149,9 @@ export const deleteProductListing = /* GraphQL */ `
       Description
       ImageUrl
       Categories
-      categoryPage {
-        id
-        ProductType
-        Categories
-        Listings {
-          items {
-            productId
-            ProductName
-            ProductType
-            BrandName
-            Rating
-            Description
-            ImageUrl
-            Categories
-            categoryPage {
-              id
-              ProductType
-              Categories
-              PageTitle
-              PageSubtitle
-              createdAt
-              updatedAt
-            }
-            Rank
-            Tags {
-              nextToken
-            }
-            ReferralUrl {
-              nextToken
-            }
-            createdAt
-            updatedAt
-            categoryPageListingsId
-          }
-          nextToken
-        }
-        PageTitle
-        PageSubtitle
-        createdAt
-        updatedAt
-      }
       Rank
-      Tags {
-        items {
-          Label
-          Color
-          id
-          createdAt
-          updatedAt
-          productListingTagsId
-        }
-        nextToken
-      }
-      ReferralUrl {
-        items {
-          Url
-          Listing {
-            productId
-            ProductName
-            ProductType
-            BrandName
-            Rating
-            Description
-            ImageUrl
-            Categories
-            categoryPage {
-              id
-              ProductType
-              Categories
-              PageTitle
-              PageSubtitle
-              createdAt
-              updatedAt
-            }
-            Rank
-            Tags {
-              nextToken
-            }
-            ReferralUrl {
-              nextToken
-            }
-            createdAt
-            updatedAt
-            categoryPageListingsId
-          }
-          id
-          createdAt
-          updatedAt
-          productListingReferralUrlId
-        }
-        nextToken
-      }
       createdAt
       updatedAt
-      categoryPageListingsId
-    }
-  }
-`;
-export const createTag = /* GraphQL */ `
-  mutation CreateTag(
-    $input: CreateTagInput!
-    $condition: ModelTagConditionInput
-  ) {
-    createTag(input: $input, condition: $condition) {
-      Label
-      Color
-      id
-      createdAt
-      updatedAt
-      productListingTagsId
-    }
-  }
-`;
-export const updateTag = /* GraphQL */ `
-  mutation UpdateTag(
-    $input: UpdateTagInput!
-    $condition: ModelTagConditionInput
-  ) {
-    updateTag(input: $input, condition: $condition) {
-      Label
-      Color
-      id
-      createdAt
-      updatedAt
-      productListingTagsId
-    }
-  }
-`;
-export const deleteTag = /* GraphQL */ `
-  mutation DeleteTag(
-    $input: DeleteTagInput!
-    $condition: ModelTagConditionInput
-  ) {
-    deleteTag(input: $input, condition: $condition) {
-      Label
-      Color
-      id
-      createdAt
-      updatedAt
-      productListingTagsId
-    }
-  }
-`;
-export const createReferralUrl = /* GraphQL */ `
-  mutation CreateReferralUrl(
-    $input: CreateReferralUrlInput!
-    $condition: ModelReferralUrlConditionInput
-  ) {
-    createReferralUrl(input: $input, condition: $condition) {
-      Url
-      Listing {
-        productId
-        ProductName
-        ProductType
-        BrandName
-        Rating
-        Description
-        ImageUrl
-        Categories
-        categoryPage {
-          id
-          ProductType
-          Categories
-          Listings {
-            items {
-              productId
-              ProductName
-              ProductType
-              BrandName
-              Rating
-              Description
-              ImageUrl
-              Categories
-              Rank
-              createdAt
-              updatedAt
-              categoryPageListingsId
-            }
-            nextToken
-          }
-          PageTitle
-          PageSubtitle
-          createdAt
-          updatedAt
-        }
-        Rank
-        Tags {
-          items {
-            Label
-            Color
-            id
-            createdAt
-            updatedAt
-            productListingTagsId
-          }
-          nextToken
-        }
-        ReferralUrl {
-          items {
-            Url
-            Listing {
-              productId
-              ProductName
-              ProductType
-              BrandName
-              Rating
-              Description
-              ImageUrl
-              Categories
-              Rank
-              createdAt
-              updatedAt
-              categoryPageListingsId
-            }
-            id
-            createdAt
-            updatedAt
-            productListingReferralUrlId
-          }
-          nextToken
-        }
-        createdAt
-        updatedAt
-        categoryPageListingsId
-      }
-      id
-      createdAt
-      updatedAt
-      productListingReferralUrlId
-    }
-  }
-`;
-export const updateReferralUrl = /* GraphQL */ `
-  mutation UpdateReferralUrl(
-    $input: UpdateReferralUrlInput!
-    $condition: ModelReferralUrlConditionInput
-  ) {
-    updateReferralUrl(input: $input, condition: $condition) {
-      Url
-      Listing {
-        productId
-        ProductName
-        ProductType
-        BrandName
-        Rating
-        Description
-        ImageUrl
-        Categories
-        categoryPage {
-          id
-          ProductType
-          Categories
-          Listings {
-            items {
-              productId
-              ProductName
-              ProductType
-              BrandName
-              Rating
-              Description
-              ImageUrl
-              Categories
-              Rank
-              createdAt
-              updatedAt
-              categoryPageListingsId
-            }
-            nextToken
-          }
-          PageTitle
-          PageSubtitle
-          createdAt
-          updatedAt
-        }
-        Rank
-        Tags {
-          items {
-            Label
-            Color
-            id
-            createdAt
-            updatedAt
-            productListingTagsId
-          }
-          nextToken
-        }
-        ReferralUrl {
-          items {
-            Url
-            Listing {
-              productId
-              ProductName
-              ProductType
-              BrandName
-              Rating
-              Description
-              ImageUrl
-              Categories
-              Rank
-              createdAt
-              updatedAt
-              categoryPageListingsId
-            }
-            id
-            createdAt
-            updatedAt
-            productListingReferralUrlId
-          }
-          nextToken
-        }
-        createdAt
-        updatedAt
-        categoryPageListingsId
-      }
-      id
-      createdAt
-      updatedAt
-      productListingReferralUrlId
-    }
-  }
-`;
-export const deleteReferralUrl = /* GraphQL */ `
-  mutation DeleteReferralUrl(
-    $input: DeleteReferralUrlInput!
-    $condition: ModelReferralUrlConditionInput
-  ) {
-    deleteReferralUrl(input: $input, condition: $condition) {
-      Url
-      Listing {
-        productId
-        ProductName
-        ProductType
-        BrandName
-        Rating
-        Description
-        ImageUrl
-        Categories
-        categoryPage {
-          id
-          ProductType
-          Categories
-          Listings {
-            items {
-              productId
-              ProductName
-              ProductType
-              BrandName
-              Rating
-              Description
-              ImageUrl
-              Categories
-              Rank
-              createdAt
-              updatedAt
-              categoryPageListingsId
-            }
-            nextToken
-          }
-          PageTitle
-          PageSubtitle
-          createdAt
-          updatedAt
-        }
-        Rank
-        Tags {
-          items {
-            Label
-            Color
-            id
-            createdAt
-            updatedAt
-            productListingTagsId
-          }
-          nextToken
-        }
-        ReferralUrl {
-          items {
-            Url
-            Listing {
-              productId
-              ProductName
-              ProductType
-              BrandName
-              Rating
-              Description
-              ImageUrl
-              Categories
-              Rank
-              createdAt
-              updatedAt
-              categoryPageListingsId
-            }
-            id
-            createdAt
-            updatedAt
-            productListingReferralUrlId
-          }
-          nextToken
-        }
-        createdAt
-        updatedAt
-        categoryPageListingsId
-      }
-      id
-      createdAt
-      updatedAt
-      productListingReferralUrlId
     }
   }
 `;

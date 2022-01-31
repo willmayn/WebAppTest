@@ -1,4 +1,3 @@
-import { autoShowTooltip } from 'aws-amplify';
 import React, { useState } from 'react';
 import { CategoryPage, ProductListing } from '../API';
 import ProductView from './ProductView';
@@ -57,9 +56,12 @@ function CategoryView(category: CategoryPage) {
         return value !== null && value !== undefined;
     }
 
-    const filteredListings: Array<ProductListing> = category.Listings?.items.filter(notEmpty) ?? [];
+    function rankSort(first: ProductListing, second: ProductListing): number {
+        return first.Rank - second.Rank;
+    }
 
-    let listing = category.Listings?.items.at(0);
+    const filteredListings: Array<ProductListing> = category?.Listings?.items.filter(notEmpty) ?? [];
+    const rankedList: Array<ProductListing> = filteredListings.sort(rankSort);
 
     return (
         <div className='Category'>
@@ -67,12 +69,12 @@ function CategoryView(category: CategoryPage) {
                 <div style={headerContentStyle}>
                     <h1 style={pageTitleStyle}>{category.PageTitle}</h1>
                     <span style={pageSubtitleStyle}>{category.PageSubtitle}</span>
-                </div>
+                </div> 
             </div>
             <div className='categoryListings' style={categoryListingStyle}>
                 {
-                    filteredListings.map((listing: ProductListing) => (
-                        <ProductView {...listing} />
+                    rankedList.map((listing: ProductListing) => (
+                        <ProductView key={listing.productId} {...listing} />
                     ))
                 }
             </div>
