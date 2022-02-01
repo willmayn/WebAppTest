@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { CategoryPage, ProductListing } from '../API';
+import Category from './CategoryModel';
+import Product from './ProductModel';
 import ProductView from './ProductView';
 
-function CategoryView(category: CategoryPage) {
+function CategoryView(category: Category) {
 
     const categoryHeaderStyle: React.CSSProperties = {
         background: "#233a7a",
@@ -56,12 +57,12 @@ function CategoryView(category: CategoryPage) {
         return value !== null && value !== undefined;
     }
 
-    function rankSort(first: ProductListing, second: ProductListing): number {
+    function rankSort(first: Product, second: Product): number {
         return first.Rank - second.Rank;
     }
 
-    const filteredListings: Array<ProductListing> = category?.Listings?.items.filter(notEmpty) ?? [];
-    const rankedList: Array<ProductListing> = filteredListings.sort(rankSort);
+    const filteredListings: Array<Product> = category?.Listings?.filter(notEmpty) ?? [];
+    const rankedList: Array<Product> = filteredListings.sort(rankSort);
 
     return (
         <div className='Category'>
@@ -73,7 +74,7 @@ function CategoryView(category: CategoryPage) {
             </div>
             <div className='categoryListings' style={categoryListingStyle}>
                 {
-                    rankedList.map((listing: ProductListing) => (
+                    rankedList.map((listing: Product) => (
                         <ProductView key={listing.productId} {...listing} />
                     ))
                 }

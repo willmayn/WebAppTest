@@ -1,8 +1,8 @@
 import { autoShowTooltip } from 'aws-amplify';
 import React, { useState } from 'react';
-import { ProductListing } from '../API';
+import Product from './ProductModel';
 
-function ProductView(listing: ProductListing) {
+function ProductView(listing: Product) {
 
     const listingStyle: React.CSSProperties = {
         width: "100%",
